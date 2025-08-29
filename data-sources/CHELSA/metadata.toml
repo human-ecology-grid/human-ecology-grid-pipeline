@@ -1,0 +1,15 @@
+name = "CHELSA 2.1"
+
+description = '''
+CHELSA v2.1 (Climatologies at High Resolution for the Earth's Land Surface Areas) dataset,
+providing high-resolution climate data for the 1981–2010 period. This dataset includes
+bioclimatic variables derived from monthly temperature and precipitation values, along with
+indicators of frost and growing degree days. The data reflects long-term climatological
+averages rather than temporal variations within the period.
+
+For further details, see the CHELSA technical specifications:
+https://chelsa-climate.org/wp-admin/download-page/CHELSA_tech_specification_V2.pdf
+'''
+
+cite = ["Karger2017", "Chelsa2021"]
+license = "CC BY 4.0"

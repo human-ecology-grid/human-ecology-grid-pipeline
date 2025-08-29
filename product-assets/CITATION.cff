@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as shown below."
+title: "A Comprehensive Multi-Domain Global Dataset for Environmental and Socioeconomic Research"
+authors:
+  - family-names: Zakharko
+    given-names: Taras
+    orcid: https://orcid.org/0000-0001-7601-8424
+  - family-names: Bickel
+    given-names: Balthasar
+    orcid: https://orcid.org/0000-0002-9087-0565
+version: "1.0.0"

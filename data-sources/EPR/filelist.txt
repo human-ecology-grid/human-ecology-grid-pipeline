@@ -1,0 +1,2 @@
+e58a8376dcd3748acd17da6ce86760a5  EPR-2021.csv.gz https://icr.ethz.ch/data/epr/core/EPR-2021.csv
+e53f51b182add105a807126408f7aba4  GeoEPR-2021.csv.gz https://icr.ethz.ch/data/epr/geoepr/GeoEPR-2021.csv

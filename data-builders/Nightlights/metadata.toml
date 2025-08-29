@@ -1,0 +1,107 @@
+name = "Nightlights"
+
+longitudinal = [
+  1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+  2020, 2021, 2022, 2023
+]
+
+description = '''
+The Nightlights module provides annual estimates of nighttime light (NTL) intensity per grid cell,
+derived from ...
+
+The Simulated VIIRS-like Nighttime Lights dataset provides a globally consistent time-series of nighttime light (NTL)
+observations from 1992 to 2021. It integrates data from the Defense Meteorological Satellite Program
+(DMSP)/Operational Linescan System (OLS) and the Visible Infrared Imaging Radiometer Suite (VIIRS) on
+the Suomi National Polar-orbiting Partnership (NPP) satellite.
+
+To adddress the inconsistency between the DMPS and VIIRS data, the dataset calibrates the DMPS data and employs a
+super-resolution machine learning model to generate higher-quality VIIRS-like data across the entire time series.
+The result is a seamless, long-term record of nighttime light intensity, enabling improved analysis of
+human activity, urbanization, electricity consumption, and socioeconomic development over time. Technical
+validation shows that the quality of the simulated dataset is compatible to that of native VIIRS data.
+
+The data is high-resolution raster (15-arc-seconds grid) measuring average radiance (nW/cm2/sr)
+'''
+
+# Nightlights Variables
+[[variable]]
+name = "ntl_intensity_watt_sr"
+description.short = "Total nighttime radiant intensity (area-integrated radiance)"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "sum"
+type          = "quantity"
+units         = "W/sr"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_mean"
+description.short = "Area-weighted mean nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "mean"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p10"
+description.short = "Area-weighted 10th percentile of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p25"
+description.short = "Area-weighted 25th percentile of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p50"
+description.short = "Area-weighted 50th percentile (median) of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p75"
+description.short = "Area-weighted 75th percentile of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p90"
+description.short = "Area-weighted 90th percentile of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_radiance_p95"
+description.short = "Area-weighted 95th percentile of nighttime radiance"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "percentile"
+type          = "quantity"
+units         = "W/sr/m2"
+data_source   = "SimulatedVIIRSNightlights"
+
+[[variable]]
+name = "ntl_intensity_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of nighttime radiance across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1992–2023)"
+aggregation   = "gini"
+type          = "numeric"
+data_source   = "SimulatedVIIRSNightlights"

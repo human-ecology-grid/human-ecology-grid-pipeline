@@ -1,0 +1,22 @@
+name = "NativeLand Digital"
+
+description = '''
+The Native Land Digital dataset provides geographic polygons representing Indigenous language
+territories worldwide. The data is community-contributed and does not represent or intend to
+represent official or legal boundaries of any Indigenous nations.
+
+We use this data to augment the language polygon coverage in the areas where the Atlas of the World's
+Languages is lacking (particularly in Australia). The glottocode matching has been performed by the
+Glottography Consortium (https://github.com/Glottography)
+
+The data has been fetched from the Native Land
+Digital API. A personal token is required to invoke the fetch scripts, and can be placed in the
+`config.toml` file as follows:
+
+    [[credentials.Nativeland]]
+    token = "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"
+'''
+
+cite = ["Nativeland"]
+
+license = "CC0"

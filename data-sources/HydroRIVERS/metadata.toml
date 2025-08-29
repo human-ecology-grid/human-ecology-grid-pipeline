@@ -1,0 +1,12 @@
+name = "HydroRIVERS v10"
+
+description = '''
+HydroRIVERS (version 10) represents a vectorized line network of all global rivers that have a
+catchment area of at least 10 km² or an average river flow of at least 0.1 m³/sec, or both.
+
+The dataset is used to estimate access to potentially navigable waterways.
+'''
+
+cite = ["Lehner2013"]
+
+license = "HydroSHEDS License (https://www.hydrosheds.org)"

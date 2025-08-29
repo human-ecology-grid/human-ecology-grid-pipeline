@@ -1,0 +1,17 @@
+name = "Natural Earth"
+
+description = '''
+The Natural Earth dataset provides high-quality, public domain geographic vector data
+at a scale of 1:10 million (10m), suitable for global-scale mapping and spatial analysis.
+This dataset includes vector layers representing airports (version 5.0.0), coastlines
+(version 4.1.0), land surface (version 5.1.1), ports (version 5.0.0), and railroads,
+including the North America supplement (version 4.0.0).
+
+The dataset is used to calculate measures of access to transportation infrastructure
+and to define land surface area for each grid cell. These features enable cross-disciplinary
+research into connectivity, accessibility, and geographic boundaries.
+'''
+
+cite = ["NaturalEarth"]
+
+license = "Public domain"

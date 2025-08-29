@@ -1,0 +1,182 @@
+name = "Connectedness"
+longitudinal = false
+
+description = '''
+The Connectedness module provides spatially aggregated measures of access to transportation
+infrastructure, including roads, railways, airports, seaports, and chokepoints. These metrics
+are derived from the GRIP4 road dataset and the Natural Earth 10m vector datasets, offering
+insight into the connectivity of different geographic regions.
+
+For road and railway networks, metrics include total length (in kilometers), density (relative
+to land area), and a distribution index reflecting how evenly transportation infrastructure
+is distributed within each grid cell. Airport and seaport presence is captured as counts per
+grid cell, while proximity to key maritime chokepoints is provided through distance-based
+statistics.
+'''
+
+# Roads (GRIP4)
+[[variable]]
+name = "roads_length_km"
+description.short = "Total length of high-throughput roads (GRIP4 primary/secondary/tertiary)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "sum"
+type = "quantity"
+units = "km"
+data_source = "GRIP4"
+
+[[variable]]
+name = "roads_density"
+description.short = "Road density as length divided by cell land area"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "km/km²"
+data_source = "GRIP4"
+
+[[variable]]
+name = "roads_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of road density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "gini"
+type = "numeric"
+data_source = "GRIP4"
+
+# -----------------------
+# Railways (Natural Earth)
+# -----------------------
+[[variable]]
+name = "railways_length_km"
+description.short = "Total railway length"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "sum"
+type = "quantity"
+units = "km"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "railways_density"
+description.short = "Railway density as length divided by cell land area"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "km/km²"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "railways_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of railway density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "gini"
+type = "numeric"
+data_source = "NaturalEarth"
+
+
+# Rivers (HydroRIVERS; proxy for potential navigability)
+[[variable]]
+name = "rivers_min_st6_length_km"
+description.short = "Total length of rivers with Strahler order ≥6 (proxy for potential navigability)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "sum"
+type = "quantity"
+units = "km"
+data_source = "HydroRIVERS"
+
+[[variable]]
+name = "rivers_min_st6_density"
+description.short = "Density of rivers with Strahler ≥6 as length divided by cell land area"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "km/km²"
+data_source = "HydroRIVERS"
+
+[[variable]]
+name = "rivers_min_st6_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of river length density (Strahler ≥6) across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "gini"
+type = "numeric"
+data_source = "HydroRIVERS"
+
+# Major lakes shoreline (HydroLAKES)
+[[variable]]
+name = "lakes_min_10km2_shore_length_km"
+description.short = "Total shoreline length of lakes with area ≥10 km²"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "sum"
+type = "quantity"
+units = "km"
+data_source = "HydroLAKES"
+
+[[variable]]
+name = "lakes_min_10km2_shore_density"
+description.short = "Lake shoreline density as shoreline length of lakes ≥10 km² divided by cell land area"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "km/km²"
+data_source = "HydroLAKES"
+
+[[variable]]
+name = "lakes_min_10km2_shore_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of lake shoreline density (lakes ≥10 km²) across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "gini"
+type = "numeric"
+data_source = "HydroLAKES"
+
+# Coastline
+[[variable]]
+name = "coastline_length_km"
+description.short = "Total coastline length"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "sum"
+type = "quantity"
+units = "km"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "coastline_density"
+description.short = "Coastline density as coastline length divided by cell land area"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "km/km²"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "coastline_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of coastline density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "gini"
+type = "numeric"
+data_source = "HydroLAKES"
+
+# Airports & seaports (Natural Earth)
+[[variable]]
+name = "airports_num"
+description.short = "Number of airports"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "seaports_num"
+description.short = "Number of seaports"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "NaturalEarth"
+
+# Maritime chokepoints
+[[variable]]
+name = "chokepoint_nearest_dist_km"
+description.short = "Great-circle distance (km) from the cell centroid to the nearest maritime chokepoint"
+description.temporal = "Static snapshot of global chockepoints between 2019-2024"
+aggregation = "min"
+type = "quantity"
+units = "km"
+data_source = "Chokepoints"

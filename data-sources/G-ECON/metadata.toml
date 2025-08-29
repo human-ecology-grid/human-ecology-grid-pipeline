@@ -1,0 +1,18 @@
+name = "G-Econ 4.0"
+
+description = '''
+The G-Econ 4.0 dataset provides high-resolution global data on economic activity, measured
+as Gross Cell Product (GCP), which represents the regional equivalent of gross domestic product (GDP).
+The dataset covers the years 1990, 1995, 2000, and 2005, with economic activity data reported at
+a 1-degree longitude by 1-degree latitude resolution worldwide.
+
+GCP is reported in constant international dollars (year 2005 purchasing power parity) and includes
+27,500 terrestrial observations. This dataset facilitates spatial economic analysis, exploring the
+geographic distribution of economic production across the globe.
+
+The project is led by William Nordhaus (Yale University) and Xi Chen (Quinnipiac University).
+'''
+
+cite = ["Nordhaus2006", "Nordhaus2016"]
+
+license = "CC0"

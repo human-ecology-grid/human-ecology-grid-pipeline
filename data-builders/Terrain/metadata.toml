@@ -1,0 +1,115 @@
+name = "Terrain"
+longitudinal = false
+
+description = '''
+The Terrain module provides comprehensive topographic analysis derived from the ETOPO 2022
+Global Relief Model, the latest generation of NOAA's global bathymetric and topographic
+grid. This module characterizes the physical landscape through elevation measurements and
+terrain roughness assessments, enabling analysis of topographic heterogeneity and
+geomorphological complexity across grid cells.
+
+ETOPO 2022 integrates the best available global and regional datasets to provide seamless
+topographic and bathymetric data at 1 arc-minute resolution. The relief model incorporates
+land topography from SRTM, ASTER GDEM, and other high-quality digital elevation models,
+along with ocean bathymetry from ship soundings and satellite altimetry. For terrain
+analysis, this module calculates elevation statistics and applies the Radial Roughness Index
+(RRI)  from Trevisani et al. (2023) to quantify surface roughness, providing
+insights into landscape complexity and geomorphological variation within each grid cell.
+'''
+
+# Land area
+[[variable]]
+name = "land_area_km2"
+description.short = "Land area (including rivers and lakes)"
+description.temporal = "Not a longitudinal variable"
+aggregation = "sum"
+type = "quantity"
+units = "km²"
+data_source = "NaturalEarth"
+
+[[variable]]
+name = "land_area_prop"
+description.short = "Land area proportion (including rivers and lakes)"
+description.temporal = "Not a longitudinal variable"
+aggregation = "proportion"
+type = "numeric"
+data_source = "NaturalEarth"
+
+# Elevation Variables
+[[variable]]
+name = "land_elevation_mean"
+description.short = "Mean elevation"
+description.temporal = "Not a longitudinal variable"
+aggregation = "mean"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_elevation_min"
+description.short = "Minimum land elevation"
+description.temporal = "Not a longitudinal variable"
+
+aggregation = "min"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_elevation_max"
+description.short = "Maximum land elevation"
+description.temporal = "Not a longitudinal variable"
+aggregation = "max"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_elevation_sd"
+description.short = "Standard deviation of land elevation"
+description.temporal = "Not a longitudinal variable"
+aggregation = "stdev"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+# Roughness Variables
+[[variable]]
+name = "land_roughness_mean"
+description.short = "Mean terrain roughness (Radial Roughness Index)"
+description.detail = "see Trevisani et al. 2023"
+description.temporal = "Not a longitudinal variable"
+aggregation = "mean"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_roughness_min"
+description.short = "Minimum terrain roughness (Radial Roughness Index)"
+description.detail = "see Trevisani et al. 2023"
+description.temporal = "Not a longitudinal variable"
+aggregation = "min"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_roughness_max"
+description.short = "Maximum terrain roughness (Radial Roughness Index)"
+description.detail = "see Trevisani et al. 2023"
+description.temporal = "Not a longitudinal variable"
+aggregation = "max"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"
+
+[[variable]]
+name = "land_roughness_sd"
+description.short = "Standard deviation of terrain roughness (Radial Roughness Index)"
+description.detail = "see Trevisani et al. 2023"
+description.temporal = "Not a longitudinal variable"
+aggregation = "stdev"
+type = "quantity"
+units = "m"
+data_source = "ETOPO"

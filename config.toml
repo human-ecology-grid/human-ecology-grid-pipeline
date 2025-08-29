@@ -1,0 +1,21 @@
+theme_order = [
+  "Terrain",
+  "Landcover",
+  "Population",
+  "EthnicPowerRelations",
+  "Languages",
+  "Countries",
+  "Connectedness",
+  "Economy",
+  "Nightlights",
+  "Climate",
+  "Biodiversity"
+]
+
+grid = [
+  "IVEA@5",
+  "IVEA@6",
+  "IVEA@7",
+  "IVEA@8",
+  "IVEA@9"
+]

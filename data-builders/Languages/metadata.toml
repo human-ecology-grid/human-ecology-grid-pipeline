@@ -1,0 +1,106 @@
+name = "Languages"
+longitudinal = false
+
+description = '''
+The Languages module integrates data from Glottolog 5.1 and Glottography, providing
+information about the world's languages, their geographic distributions, and endangerment
+statuses. It includes language counts, endangered language counts, and detailed
+descriptions for each language mapped to geographic grid cells.
+'''
+
+# Language Variables
+[[variable]]
+name = "languages_num"
+description.short = "Number of distinct languages"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = ["Glottolog", "GlottographyAtlas", "NativeLand"]
+
+[[variable]]
+name = "languages_families_num"
+description.short = "Number of distinct language families"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = ["Glottolog", "GlottographyAtlas", "NativeLand"]
+
+[[variable]]
+name = "languages_endangered_num"
+description.short = "Number of distinct endangered language"
+description.detail = "Glottolog AES parameter > 1"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = ["Glottolog", "GlottographyAtlas", "NativeLand"]
+
+# Nested table for languages
+[[variable]]
+name = "languages"
+description.short = "List of languages"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "list"
+data_source = ["Glottolog", "GlottographyAtlas", "NativeLand"]
+
+# languages.language_glottocode
+[[variable.variable]]
+name = "language_glottocode"
+description.short = "Glottocode identifier"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "id"
+reference_schema = "Glottocode"
+reference_uri = "https://glottolog.org"
+reference_type = "string"
+data_source = ["Glottolog"]
+
+# languages.language_glottocode
+[[variable.variable]]
+name = "language_name"
+description.short = "Language name"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "label"
+data_source = ["Glottolog"]
+
+# languages.language_glottocode
+[[variable.variable]]
+name = "language_family_name"
+description.short = "Language family name"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "label"
+data_source = ["Glottolog"]
+
+# languages.language_glottocode
+[[variable.variable]]
+name = "language_is_isolate"
+description.short = "Whether the language is an isolate"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "bool"
+data_source = ["Glottolog"]
+
+# languages.language_endangernment_status
+[[variable.variable]]
+name = "language_endangerment_status"
+description.short = "Endangerment score (1='not endangered' ... 6='extinct')"
+description.detail = "Glottolog AES parameter"
+description.temporal = "Static snapshot, data vintages vary"
+reference_uri = "https://glottolog.org/langdoc/status"
+aggregation = "none"
+type = "numeric"
+data_source = ["Glottolog"]
+
+# languages.language_glottocode
+[[variable.variable]]
+name = "language_source"
+description.short = "Primary source for language polygon data"
+description.temporal = "Static snapshot, data vintages vary"
+aggregation = "none"
+type = "label"
+data_source = ["GlottographyAtlas", "NativeLand"]

@@ -1,0 +1,21 @@
+name = "GRIP4"
+
+description = '''
+The Global Roads Inventory Project (GRIP) dataset provides a comprehensive and consistent
+global dataset of road infrastructure. It includes both vector datasets (in ESRI file
+geodatabase and shapefile formats) and global raster datasets representing road density
+at a 5 arcminutes resolution (~8x8 km).
+
+The GRIP dataset is designed primarily for use in global environmental and biodiversity
+assessment models, such as GLOBIO, facilitating the study of the environmental impact of
+road infrastructure. It is not intended for navigation purposes.
+
+GRIP4, the latest version, is compiled from multiple publicly available sources, including
+OpenStreetMap. The data has been harmonized using the UNSDI-Transportation datamodel to
+ensure consistency across regions.
+'''
+
+cite = ["Meijer2018"]
+
+
+license = "CC0"

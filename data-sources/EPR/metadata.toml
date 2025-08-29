@@ -1,0 +1,12 @@
+name = "EPR 2021"
+
+description = '''
+EPR Ethnic Dimensions Data 2021 version, sourced from the EPR Core and GeoEPR datasets.
+This dataset provides detailed information on ethnic group distribution, political status,
+and regional autonomy across geographic regions. Data was processed using the official
+2021 release, ensuring consistency with the EPR codebook.
+'''
+
+cite = ["Vogt2015"]
+
+license = "other"

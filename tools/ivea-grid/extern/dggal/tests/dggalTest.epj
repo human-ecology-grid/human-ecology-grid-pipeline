@@ -1,0 +1,63 @@
+{
+   "Version" : 0.2,
+   "ModuleName" : "dggalTest",
+   "Options" : {
+      "Warnings" : "All",
+      "TargetType" : "Executable",
+      "TargetFileName" : "dggalTest",
+      "Libraries" : [
+         "ecrt"
+      ],
+      "Console" : true
+   },
+   "Platforms" : [
+      {
+         "Name" : "linux",
+         "Options" : {
+            "Libraries" : [
+               "m"
+            ]
+         }
+      }
+   ],
+   "Configurations" : [
+      {
+         "Name" : "Debug",
+         "Options" : {
+            "Debug" : true,
+            "Optimization" : "None",
+            "PreprocessorDefinitions" : [
+               "_DEBUG",
+               "IMPORT_STATIC=\"\""
+            ],
+            "FastMath" : false
+         }
+      },
+      {
+         "Name" : "Release",
+         "Options" : {
+            "Debug" : false,
+            "Optimization" : "Speed",
+            "PreprocessorDefinitions" : [
+               "IMPORT_STATIC=\"\""
+            ],
+            "FastMath" : true
+         }
+      }
+   ],
+   "Files" : [
+      {
+         "Folder" : "dggrs",
+         "Files" : [
+            "isea3HTests.ec"
+         ]
+      },
+      "$(EC_SDK_SRC)/extras/testing/testingFramework.ec",
+      "dggalTest.ec",
+      "dggrsTestCase.ec"
+   ],
+   "ResourcesPath" : "",
+   "Resources" : [
+
+   ]
+}

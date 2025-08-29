@@ -1,0 +1,1 @@
+59cd4da6ecbc50ff2c96a822308227f4  glottolog-cldf-v5.1.zip  https://zenodo.org/records/14006636/files/glottolog/glottolog-cldf-v5.1.zip

@@ -1,0 +1,186 @@
+name = "Ethnic Power Relations"
+longitudinal = [
+  1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989,
+  1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+  2020, 2021
+]
+
+description = '''
+Aggregated ethnic group data from the Ethnic Power Relations (EPR) dataset, 2021 version.
+This module provides counts of politically relevant ethnic groups and their political status within specified
+geographic cells and years. The dataset highlights the distribution of power among ethnic
+groups, identifying those who are unprivileged or enjoy regional autonomy.
+'''
+
+depends_on = ["Countries"]
+
+# EPR Variables
+[[variable]]
+name = "epr_groups_num"
+description.short = "Number of distinct ethnic groups"
+description.temporal = "Annual (1981-2021)"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "EPR"
+
+[[variable]]
+name = "epr_groups_rel_unpriviledged_num"
+description.short = "Number of politically unprivileged ethnic groups"
+description.detail = "EPR status coded as 'DISCRIMINATED' or 'POWERLESS' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "EPR"
+
+[[variable]]
+name = "epr_groups_rel_autonomous_num"
+description.short = "Number of ethnic groups with regional or state-level autonomy"
+description.detail = "EPR reg_aut coded as 'TRUE' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "EPR"
+
+
+# Nested table for EPR ethnic groups
+[[variable]]
+name = "epr_groups"
+description.short = "List of ethnic groups"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "list"
+data_source = "EPR"
+
+# epr_groups.variable
+[[variable.variable]]
+name = "epr_group_code"
+description.short = "Ethnic group identifier as per EPR database"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "id"
+reference_schema = "EPR Ethnic Group Codes"
+reference_uri = "https://icr.ethz.ch/data/epr/core/"
+reference_type = "integer"
+data_source = "EPR"
+
+# epr_groups.variable
+[[variable.variable]]
+name = "epr_group_country_gwcode"
+description.short = "Gleditsch–Ward code of the ethnic group’s country"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "id"
+reference_schema = "Gleditsch and Ward"
+reference_uri = "http://ksgleditsch.com/data-4.html"
+reference_type = "integer"
+data_source = "EPR"
+
+# epr_groups.variable
+[[variable.variable]]
+name = "epr_group_country_isocode"
+description.short = "ISO 3166-1 alpha-3 code of the ethnic group’s country"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "id"
+reference_schema = "ISO 3166-1 alpha-3"
+reference_uri = "https://www.iso.org/iso-3166-country-codes.html"
+reference_type = "string"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_monopoly"
+description.short = "Whether the ethnic group holds a monopoly on executive power"
+description.detail = "EPR status coded as 'MONOPOLY' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+
+[[variable.variable]]
+name = "epr_group_rel_dominant"
+description.short = "Whether the ethnic group holds dominant executive power"
+description.detail = "EPR status coded as 'DOMINANT' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_senior_partner"
+description.short = "Whether the ethnic group participates as senior partner in executive power-sharing"
+description.detail = "EPR status coded as 'SENIOR PARTNER' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_junior_partner"
+description.short = "Whether the ethnic group participates as junior partner in executive power-sharing"
+description.detail = "EPR status coded as 'JUNIOR PARTNER' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+# epr_groups.variable
+[[variable.variable]]
+name = "epr_group_rel_autonomous"
+description.short = "Whether the ethnic group has regional or state-level autonomy"
+description.temporal = "Annual (1981-2021)"
+description.detail = "EPR reg_aut coded as 'TRUE'"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+# epr_groups.variable
+[[variable.variable]]
+name = "epr_group_rel_unprivileged"
+description.short = "Whether the ethnic group is politically unpriviledged"
+description.detail = "EPR status coded as 'DISCRIMINATED' or 'POWERLESS' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_discriminated"
+description.short = "Whether the ethnic group is being actively disctrimated agains by the state"
+description.detail = "EPR status coded as 'DISCRIMINATED' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_powerless"
+description.short = "Whether the ethnic group has no executive power"
+description.detail = "EPR status coded as 'POWERLESS' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_self_exclusion"
+description.short = "Whether the ethnic group practices self-exclusion from the central state power"
+description.detail = "EPR status coded as 'SELF-EXCLUSION' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"
+
+[[variable.variable]]
+name = "epr_group_rel_state_collapse"
+description.short = "Whether disintegration of state instutitions makes it impossible to codify access to government"
+description.detail = "EPR status coded as 'STATE COLLAPSE' (see EPR core codebook https://icr.ethz.ch/data/epr/core/EPR_2021_Codebook_EPR.pdf)"
+description.temporal = "Annual (1981-2021)"
+aggregation = "none"
+type = "bool"
+data_source = "EPR"

@@ -1,0 +1,12 @@
+name = "Glottolog 5.1"
+
+description = '''
+The Glottolog 5.1 CLDF dataset provides structured information on languages, dialects,
+and language families worldwide. Each entry includes a unique Glottocode, primary and alternative
+names, ISO 639-3 codes, geographic coordinates, macro-area classification, language endangernment
+status and bibliographic references.
+'''
+
+cite = ["Glottolog2024"]
+
+license = "CC BY 4.0"

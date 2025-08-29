@@ -1,0 +1,194 @@
+.PHONY: all objdir cleantarget clean realclean distclean
+
+# CORE VARIABLES
+
+MODULE := info
+VERSION :=
+CONFIG := static
+CONTAINS_CXX := defined
+ifndef COMPILER
+COMPILER := default
+endif
+
+TARGET_TYPE = executable
+
+# FLAGS
+
+ECFLAGS =
+ifndef DEBIAN_PACKAGE
+CFLAGS =
+LDFLAGS =
+endif
+PRJ_CFLAGS =
+CECFLAGS =
+OFLAGS =
+LIBS =
+
+ifdef DEBUG
+NOSTRIP := y
+endif
+
+CONSOLE = -mconsole
+
+# INCLUDES
+
+DGGAL_ABSPATH := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))../../
+
+ifndef EC_SDK_SRC
+EC_SDK_SRC := $(DGGAL_ABSPATH)../eC
+endif
+
+_CF_DIR = $(EC_SDK_SRC)/
+include $(_CF_DIR)crossplatform.mk
+include $(_CF_DIR)default.cf
+ifndef WINDOWS_HOST
+export LD_LIBRARY_PATH := $(LD_LIBRARY_PATH):$(DGGAL_ABSPATH)obj/$(CONFIG).$(HOST_PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/
+else
+export PATH := $(PATH);$(DGGAL_ABSPATH)obj/$(CONFIG).$(HOST_PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/
+endif
+
+# POST-INCLUDES VARIABLES
+
+OBJ = obj/$(CONFIG).$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/
+
+RES =
+
+TARGET_NAME := info
+
+TARGET = obj/$(CONFIG).$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/$(TARGET_NAME)$(OUT)
+
+_OBJECTS = \
+	$(OBJ)dggal.cpp$(O) \
+	$(OBJ)ecrt.cpp$(O) \
+	$(OBJ)dggal$(O) \
+	$(OBJ)ecrt$(O) \
+	$(OBJ)info$(O)
+
+OBJECTS = $(_OBJECTS)
+
+SOURCES = \
+	../../bindings/cpp/dggal.cpp \
+	$(EC_SDK_SRC)/bindings/cpp/ecrt.cpp \
+	../../bindings/c/dggal.c \
+	$(EC_SDK_SRC)/bindings/c/ecrt.c \
+	info.cpp
+
+RESOURCES =
+
+ifdef USE_RESOURCES_EAR
+RESOURCES_EAR =
+else
+RESOURCES_EAR = $(RESOURCES)
+endif
+
+LIBS += $(SHAREDLIB) $(EXECUTABLE) $(LINKOPT)
+
+ifndef STATIC_LIBRARY_TARGET
+LIBS += \
+	$(call _L,ecrtStatic)
+endif
+
+PRJ_CFLAGS += \
+	 $(if $(DEBUG), -g, -O2 -ffast-math) $(FPIC) -Wall -DREPOSITORY_VERSION="\"$(REPOSITORY_VER)\"" \
+			 -DEC_STATIC \
+			 -I../../bindings/c \
+			 -I../../bindings/cpp \
+			 -I$(EC_SDK_SRC)/bindings/c \
+			 -I$(EC_SDK_SRC)/bindings/cpp
+
+CUSTOM1_PRJ_CFLAGS = \
+			 -DECPRFX=eC_ \
+	 $(PRJ_CFLAGS)
+
+ECFLAGS += -module $(MODULE)
+# PLATFORM-SPECIFIC OPTIONS
+
+ifdef WINDOWS_TARGET
+
+ifndef STATIC_LIBRARY_TARGET
+LIBS += \
+	$(call _L,kernel32) \
+	$(call _L,user32) \
+	$(call _L,winmm) \
+	$(call _L,mpr) \
+	$(call _L,z) \
+	$(call _L,dggalStatic)
+endif
+
+else
+ifdef LINUX_TARGET
+
+LIBS += \
+	$(call _L,dggalStatic) \
+	$(call _L,m) \
+	$(call _L,dl) \
+	$(call _L,pthread) \
+	$(call _L,z)
+
+endif
+endif
+
+CECFLAGS += -cpp $(_CPP)
+
+OFLAGS += \
+	-L$(call quote_path,../../obj/static.$(PLATFORM)$(COMPILER_CONFIG)) \
+	-L$(call quote_path,../../obj/release.$(PLATFORM)$(COMPILER_CONFIG)) \
+	-L$(call quote_path,$(EC_SDK_SRC)/obj/$(PLATFORM)$(COMPILER_CONFIG)/lib) \
+	-L$(call quote_path,$(EC_SDK_SRC)/obj/$(PLATFORM)$(COMPILER_CONFIG)/bin)
+
+CXXFLAGS += -std=c++17
+
+# TARGETS
+
+all: objdir $(TARGET)
+
+objdir:
+	$(if $(wildcard $(OBJ)),,$(call mkdir,$(OBJ)))
+
+$(SYMBOLS): | objdir
+$(OBJECTS): | objdir
+$(TARGET): $(SOURCES) $(RESOURCES_EAR) $(SYMBOLS) $(OBJECTS) | objdir
+	@$(call rm,$(OBJ)objects.lst)
+	@$(call touch,$(OBJ)objects.lst)
+	$(call addtolistfile,$(_OBJECTS),$(OBJ)objects.lst)
+	$(LD) $(OFLAGS) @$(OBJ)objects.lst $(LIBS) -o $(TARGET) $(INSTALLNAME) $(SONAME)
+ifndef NOSTRIP
+	$(STRIP) $(STRIPOPT) $(TARGET)
+endif
+
+# SYMBOL RULES
+
+# C OBJECT RULES
+
+# OBJECT RULES
+
+$(OBJ)dggal.cpp$(O): ../../bindings/cpp/dggal.cpp
+	$(CXX) $(CXXFLAGS) $(PRJ_CFLAGS) -c $(call quote_path,../../bindings/cpp/dggal.cpp) -o $(call quote_path,$@)
+
+$(OBJ)ecrt.cpp$(O): $(EC_SDK_SRC)/bindings/cpp/ecrt.cpp
+	$(CXX) $(CXXFLAGS) $(PRJ_CFLAGS) -c $(call quote_path,$(EC_SDK_SRC)/bindings/cpp/ecrt.cpp) -o $(call quote_path,$@)
+
+$(OBJ)dggal$(O): ../../bindings/c/dggal.c
+	$(CC) $(CFLAGS) $(CUSTOM1_PRJ_CFLAGS) -c $(call quote_path,../../bindings/c/dggal.c) -o $(call quote_path,$@)
+
+$(OBJ)ecrt$(O): $(EC_SDK_SRC)/bindings/c/ecrt.c
+	$(CC) $(CFLAGS) $(CUSTOM1_PRJ_CFLAGS) -c $(call quote_path,$(EC_SDK_SRC)/bindings/c/ecrt.c) -o $(call quote_path,$@)
+
+$(OBJ)info$(O): info.cpp
+	$(CXX) $(CXXFLAGS) $(PRJ_CFLAGS) -c $(call quote_path,info.cpp) -o $(call quote_path,$@)
+
+cleantarget:
+	$(call rm,$(OBJ)objects.lst)
+	$(call rm,$(TARGET))
+
+clean: cleantarget
+	$(call rm,$(_OBJECTS))
+
+realclean: cleantarget
+	$(call rmr,$(OBJ))
+
+distclean: cleantarget
+	$(call rmr,obj/)
+	$(call rmr,.configs/)
+	$(call rm,*.ews)
+	$(call rm,*.Makefile)

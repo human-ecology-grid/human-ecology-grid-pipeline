@@ -1,0 +1,11 @@
+name = "HydroLAKES v10"
+
+description = '''
+HydroLAKES (version 10) represents shoreline polygons of global lakes with a surface area of at least 10 ha.
+
+The dataset is used to estimate access to potentially navigable lakes.
+'''
+
+cite = ["Messager2016"]
+
+license = "CC BY 4.0"

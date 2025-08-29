@@ -1,0 +1,19 @@
+name = "GlottographyAtlas"
+
+description = '''
+The Atlas of the World's Languages dataset provides geographic polygons representing
+language areas worldwide, derived from Asher and Moseley 2007 "Atlas of the World's
+Languages" (2nd edition). The digitization has been carried out by the Glottography
+Consortium, creating comprehensive spatial data for both contemporary and historical
+(time of contact) speaker areas.
+
+This dataset serves as the primary source for language territory mapping in the
+project, with Native Land Digital data used to augment coverage for languages
+not included in the Atlas. The spatial polygons enable analysis of linguistic
+diversity and language distribution patterns across the globe. We only use the
+contemporary language polygons.
+'''
+
+cite = ["schipper2020"]
+
+license = "CC BY 4.0"

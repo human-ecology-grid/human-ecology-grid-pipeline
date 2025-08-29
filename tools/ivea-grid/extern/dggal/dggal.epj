@@ -1,0 +1,141 @@
+{
+   "Version" : 0.2,
+   "ModuleName" : "dggal",
+   "Options" : {
+      "Warnings" : "All",
+      "TargetType" : "SharedLibrary",
+      "TargetFileName" : "dggal",
+      "Libraries" : [
+         "ecrt"
+      ]
+   },
+   "Platforms" : [
+      {
+         "Name" : "linux",
+         "Options" : {
+            "Libraries" : [
+               "m"
+            ]
+         }
+      }
+   ],
+   "Configurations" : [
+      {
+         "Name" : "Debug",
+         "Options" : {
+            "Debug" : true,
+            "Optimization" : "None",
+            "PreprocessorDefinitions" : [
+               "_DEBUG",
+               "IMPORT_STATIC=\"\""
+            ],
+            "FastMath" : false
+         }
+      },
+      {
+         "Name" : "Release",
+         "Options" : {
+            "Optimization" : "Speed",
+            "PreprocessorDefinitions" : [
+               "IMPORT_STATIC=\"\""
+            ],
+            "FastMath" : true
+         }
+      },
+      {
+         "Name" : "Static",
+         "Options" : {
+            "Optimization" : "Speed",
+            "PreprocessorDefinitions" : [
+               "IMPORT_STATIC=static",
+               "ECERE_STATIC"
+            ],
+            "TargetType" : "StaticLibrary",
+            "TargetFileName" : "dggalStatic",
+            "Libraries" : [
+
+            ],
+            "FastMath" : true
+         },
+         "Platforms" : [
+            {
+               "Name" : "linux",
+               "Options" : {
+                  "Libraries" : [
+                     "m",
+                     "X11",
+                     "curses",
+                     "Xrender",
+                     "Xext",
+                     "z"
+                  ]
+               }
+            }
+         ]
+      }
+   ],
+   "Files" : [
+      {
+         "Folder" : "src",
+         "Files" : [
+            {
+               "Folder" : "dggrs",
+               "Files" : [
+                  "I3HSubZones.ec",
+                  "RI3H.ec",
+                  "RI9R.ec",
+                  "GNOSISGlobalGrid.ec",
+                  "ISEA9R.ec",
+                  "ISEA3H.ec",
+                  "GPP3H.ec",
+                  "IVEA3H.ec",
+                  "IVEA9R.ec",
+                  "BCTA3H.ec",
+                  "RTEA3H.ec",
+                  "RTEA9R.ec",
+                  "rHEALPixGrid.ec"
+               ]
+            },
+            {
+               "Folder" : "projections",
+               "Files" : [
+                  "ri5x6.ec",
+                  "authalic.ec",
+                  "barycentric5x6.ec",
+                  "icoVertexGreatCircle.ec",
+                  "rHEALPix.ec"
+               ]
+            },
+            {
+               "Folder" : "dggsJSON",
+               "Files" : [
+                  "dggsJSON.ec",
+                  "JSONSchema.ec"
+               ]
+            },
+            {
+               "Folder" : "ecere3D",
+               "Files" : [
+                  "Plane.ec",
+                  "Vector3D.ec",
+                  "Quaternion.ec"
+               ],
+               "Configurations" : [
+                  {
+                     "Name" : "Static",
+                     "Options" : {
+                        "ExcludeFromBuild" : false
+                     }
+                  }
+               ]
+            },
+            "GeoExtent.ec",
+            "dggrs.ec"
+         ]
+      }
+   ],
+   "ResourcesPath" : "",
+   "Resources" : [
+
+   ]
+}

@@ -1,0 +1,74 @@
+name = "Landcover"
+
+longitudinal = [
+  1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+  2020, 2021, 2022, 2023
+]
+
+
+description = '''
+The Landcover module provides comprehensive measurements of anthropogenic land use patterns
+across grid cells, derived from the HYDE 3.3 (History Database of the Global Environment)
+dataset. This module tracks the spatial distribution and intensity of human land use from
+1990 to 2023, including agricultural activities (cropland and grazing) and urbanization.
+
+HYDE 3.3 offers long-term reconstructions of human impact on terrestrial ecosystems by
+quantifying land use changes at high spatial resolution. The dataset integrates historical
+population data, archaeological evidence, and modern satellite observations to provide
+consistent estimates of land use patterns over time. For each land use type, the module
+calculates both total area coverage and spatial dispersion metrics, enabling analysis of
+land use intensity and fragmentation patterns within each grid cell.
+'''
+
+[[variable]]
+name = "land_crop_area_km2"
+description.short = "Total land area actively used for crop cultivation"
+description.temporal = "Annual (1990-2023)"
+aggregation = "sum"
+type = "quantity"
+units = "km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "land_crop_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of cropland share across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990-2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"
+
+[[variable]]
+name = "land_grazing_area_km2"
+description.short = "Total land area actively used for grazing"
+description.temporal = "Annual (1990-2023)"
+aggregation = "sum"
+type = "quantity"
+units = "km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "land_grazing_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of grazing land share across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990-2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"
+
+[[variable]]
+name = "land_urban_area_km2"
+description.short = "Total built-up (urban) area"
+description.temporal = "Annual (1990-2023)"
+aggregation = "sum"
+type = "quantity"
+units = "km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "land_urban_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of built-up (urban) land share across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990-2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"

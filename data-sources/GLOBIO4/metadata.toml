@@ -1,0 +1,9 @@
+name = "GLOBIO4"
+
+description = '''
+terrestrial MSA
+'''
+
+cite = ["Asher2007", "GlottographyAtlas"]
+
+license = "CC-BY 4.0"

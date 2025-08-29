@@ -1,0 +1,29 @@
+name = "Biodiversity"
+longitudinal = [2015]
+
+
+description = '''
+The Ecology module provides biodiversity indicators derived from the GLOBIO4 model.
+The MSA indicator reflects the impact of multiple human pressures on biodiversity,
+including land use change, infrastructure development, fragmentation, hunting,
+atmospheric nitrogen deposition, and climate change. Values range from 0% (completely
+degraded ecosystem with no original species) to 100% (pristine ecosystem). This
+module provides spatial summaries of biodiversity intactness and its distribution
+patterns within each grid cell.
+'''
+
+[[variable]]
+name = "msa_mean"
+description.short = "Mean Species Abundance (MSA) indicator of biodiversity intactness (0 - locally extinct, 1 - fully intact)"
+description.temporal = "Cross-sectional data for year 2015"
+aggregation = "mean"
+type = "numeric"
+data_source = "GLOBIO4"
+
+[[variable]]
+name = "msa_dispersion"
+description.short = "Gini coefficient quantifying  of the Mean Species Abundance indicator"
+description.temporal = "Cross-sectional data for year 2015"
+aggregation = "gini"
+type = "numeric"
+data_source = "GLOBIO4"

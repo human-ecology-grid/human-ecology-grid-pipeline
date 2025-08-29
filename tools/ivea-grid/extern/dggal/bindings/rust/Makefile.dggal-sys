@@ -1,0 +1,90 @@
+.PHONY: all objdir cleantarget clean realclean distclean
+
+ifneq ($(V),1)
+.SILENT:
+endif
+
+MODULE := dggal_sys
+BINDING_NAME := dggal
+
+# CORE VARIABLES
+
+VERSION := 0.0.1
+CONFIG := release
+ifndef COMPILER
+COMPILER := default
+endif
+
+# C_BINDINGS_SYMBOLS_PREFIX_ENABLE := y
+
+TARGET_TYPE = sharedlib
+
+# INCLUDES
+
+DGGAL_ABSPATH := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))../../
+
+ifndef EC_SDK_SRC
+EC_SDK_SRC := $(DGGAL_ABSPATH)../eC
+endif
+
+_CF_DIR = $(EC_SDK_SRC)/
+include $(_CF_DIR)crossplatform.mk
+include $(_CF_DIR)default.cf
+
+# POST-INCLUDES VARIABLES
+
+OBJ = obj/$(PLATFORM)$(COMPILER_SUFFIX)
+
+TARGET = $(OBJ)/lib$(MODULE).rlib
+
+SOURCES = $(MODULE).rs
+
+LIBS += \
+   $(call _L,dggal_cStatic) \
+	$(call _L,dggalStatic)
+
+#	-Clink-arg=$(OBJ)/$(BINDING_NAME)$(O)
+
+OFLAGS =
+
+OFLAGS += \
+	-L obj/$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX) \
+	-L $(DGGAL_ABSPATH)obj/$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/lib \
+	-L $(EC_SDK_SRC)/obj/$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/lib
+
+RUSTFLAGS = --edition 2021 -Anon_snake_case -Anon_upper_case_globals -Anon_camel_case_types -Aimproper_ctypes
+
+_OBJECTS = $(_DEP_OBJECTS) $(OBJ)/$(BINDING_NAME)$(O)
+
+OBJECTS = $(_OBJECTS)
+
+SOURCES = $(_DEP_SOURCES) $(BINDING_NAME)_cffi.rs
+
+CBINDING_STATIC_LIB = $(DGGAL_ABSPATH)obj/$(PLATFORM)$(COMPILER_SUFFIX)$(DEBUG_SUFFIX)/lib/libdggal_cStatic.a
+
+all: objdir $(TARGET);
+
+# TARGETS
+
+objdir:
+	$(call mkdir,$(OBJ))
+
+$(SYMBOLS): | objdir
+$(OBJECTS): | objdir
+
+$(TARGET): $(SOURCES) $(OBJECTS) $(CBINDING_STATIC_LIB) | objdir
+	rustc --crate-type lib --crate-name dggal_sys $(RUSTFLAGS) $(BINDING_NAME)_cffi.rs $(OFLAGS) $(LIBS) -o $(TARGET)
+	$(call mkdir,$(DGGAL_ABSPATH)obj/$(PLATFORM)/lib)
+	$(call cp,$(TARGET),$(DGGAL_ABSPATH)obj/$(PLATFORM)/lib)
+
+cleantarget:
+	$(call rm,$(TARGET))
+
+clean: cleantarget
+	$(call rm,_OBJECTS)
+
+realclean: cleantarget
+	$(call rmr,$(OBJ))
+
+distclean:
+	$(_MAKE) -f $(_CF_DIR)Cleanfile distclean distclean_all_subdirs

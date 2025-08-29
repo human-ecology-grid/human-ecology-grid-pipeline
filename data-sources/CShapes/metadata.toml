@@ -1,0 +1,11 @@
+name = "CShapes 2.0"
+
+description = '''
+CShapes version 2.0 dataset, which provides historical state boundaries from 1886 to 2020.
+The dataset includes detailed polygons for each country-year combination, mapped to grid cells
+and enriched with identifiers from the countrycode dataset.
+'''
+
+cite = ["Schvitz2022"]
+
+license = "CC BY 4.0"

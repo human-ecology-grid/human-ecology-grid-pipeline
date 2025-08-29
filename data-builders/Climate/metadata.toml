@@ -1,0 +1,213 @@
+name = "Climate"
+longitudinal = false
+description = '''
+Aggregated climate data from the CHELSA v2.1 dataset for the 1981–2010 period.
+This module provides high-resolution climatological variables, including temperature, precipitation,
+and frost events, mapped to geographic grid cells.
+'''
+
+# CHELSA Climatic Variables (1981–2010)
+[[variable]]
+name = "clim_2010_bio1"
+description.short = "Mean annual daily mean air temperature"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+
+[[variable]]
+name = "clim_2010_bio2"
+description.short = "Mean diurnal temperature range, defined as the difference between daily maximum and minimum temperatures"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio3"
+description.short = "Isothermality ratio, defined as the ratio between the mean diurnal temperature range and the annual temperature range and expressed as a percentage"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio4"
+description.short = "Temperature seasonality, defined as the standard deviation of monthly mean temperatures, multiplied by 100"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C * 100"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio5"
+description.short = "Maximum daily mean air temperature during the warmest month of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio6"
+description.short = "Minimum daily mean air temperature for the coldest month of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio7"
+description.short = "Annual temperature range, defined as the difference  between the maximum temperature of the warmest month and the minimum temperature of the coldest month"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio8"
+description.short = "Mean daily air temperature during the wettest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio9"
+description.short = "Mean daily air temperature during the driest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio10"
+description.short = "Mean daily air temperature during the warmest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio11"
+description.short = "Mean daily air temperature during the coldest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+units = "C"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio12"
+description.short = "Total annual precipitation"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio13"
+description.short = "Total precipitation during the wettest month of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio14"
+description.short = "Total precipitation during the driest month of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio15"
+description.short = "Precipitation seasonality, defined as the as the coefficient of variation in monthly precipitation"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio16"
+description.short = "Mean monthly precipitation during the wettest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio17"
+description.short = "Mean monthly precipitation during the driest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio18"
+description.short = "Mean monthly precipitation during the warmest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_bio19"
+description.short = "Mean monthly precipitation during the coldest quarter of the year"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "kg/m²"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_frost_events_num"
+description.short = "Number of frost change events, defined as maximal/minimal temperature crossing the 0°C threshold"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "numeric"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_heatsum_above_0C"
+description.short = "Accumulated heat sum (daily degree-hours) for all days with mean temperatures above 0°C"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "C*hours"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_heatsum_above_5C"
+description.short = "Accumulated heat sum (daily degree-hours) for all days with mean temperatures above 5°C"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "C*hours"
+data_source = "CHELSA"
+
+[[variable]]
+name = "clim_2010_heatsum_above_10C"
+description.short = "Accumulated heat sum (daily degree-hours) for all days with mean temperatures above 10°C"
+description.temporal = "Averages for the 1981–2010 period. Climatological variables are not considered longitudinal data"
+aggregation = "mean"
+type = "quantity"
+units = "C*hours"
+data_source = "CHELSA"

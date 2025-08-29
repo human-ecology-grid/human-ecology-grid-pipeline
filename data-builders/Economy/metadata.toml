@@ -1,0 +1,39 @@
+name = "Economy"
+longitudinal = [1990, 1995, 2000, 2005]
+
+description = '''
+The Economy module aggregates global economic activity from the G-Econ 4.0 dataset,
+mapping Gross Cell Product (GCP) onto a geodesic grid. GCP represents the regional
+equivalent of gross domestic product (GDP) at a fine spatial resolution. This module
+provides estimates of economic output for the years 1990, 1995, 2000, and 2005,
+expressed in constant 2005 USD using both market exchange rates (MER) and purchasing
+power parity (PPP).
+'''
+
+# Economy Variables
+
+[[variable]]
+name = "gdp_mer_usd"
+description.short = "Gross Cell Product in 2005 USD at market exchange rates (MER)"
+description.temporal = "Cross-sectional data for 1990, 1995, 2000, and 2005"
+aggregation = "sum"
+type = "quantity"
+units = "USD (2005 MER)"
+data_source = "G-ECON"
+
+[[variable]]
+name = "gdp_ppp_usd"
+description.short = "Gross Cell Product constant 2005 USD at purchasing power parity (PPP)"
+description.temporal = "Cross-sectional data for 1990, 1995, 2000, and 2005"
+aggregation = "sum"
+type = "quantity"
+units = "USD (2005 PPP)"
+data_source = "G-ECON"
+
+[[variable]]
+name = "gdp_reliability"
+description.short = "Proportion of contributing G-Econ cells with QUALITY==1 (higher values indicate better reliability)"
+description.temporal = "Cross-sectional data for 1990, 1995, 2000, and 2005"
+aggregation = "mean"
+type = "numeric"
+data_source = "G-ECON"

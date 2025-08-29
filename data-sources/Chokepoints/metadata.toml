@@ -1,0 +1,9 @@
+name = "Chokepoints"
+
+description = '''
+Information on the 24 identified major gloabl chokepoints, provided by IMF PortWatch.
+'''
+
+cite = ["Chokepoints"]
+
+license = "IMF License (https://www.imf.org/en/About/copyright-and-terms#data)"

@@ -1,0 +1,1 @@
+91f1422ba0b125c8ad4d304b185758a2  CShapes-2.0.csv.gz  https://icr.ethz.ch/data/cshapes/CShapes-2.0.csv

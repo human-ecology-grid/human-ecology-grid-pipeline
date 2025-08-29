@@ -1,0 +1,20 @@
+name = "Simulated VIIRS-like Nighttime Lights"
+
+description = '''
+The Simulated VIIRS-like Nighttime Lights dataset provides a globally consistent time-series of nighttime light (NTL)
+observations from 1992 to 2021. It integrates data from the Defense Meteorological Satellite Program
+(DMSP)/Operational Linescan System (OLS) and the Visible Infrared Imaging Radiometer Suite (VIIRS) on
+the Suomi National Polar-orbiting Partnership (NPP) satellite.
+
+To adddress the inconsistency between the DMPS and VIIRS data, the dataset calibrates the DMPS data and employs a
+super-resolution machine learning model to generate higher-quality VIIRS-like data across the entire time series.
+The result is a seamless, long-term record of nighttime light intensity, enabling improved analysis of
+human activity, urbanization, electricity consumption, and socioeconomic development over time. Technical
+validation shows that the quality of the simulated dataset is compatible to that of native VIIRS data.
+
+The data is high-resolution raster (15-arc-seconds grid) measuring average radiance (nW/cm2/sr)
+'''
+
+cite = ["Chen2024a", "Chen2024b"]
+
+license = "CC BY 4.0"

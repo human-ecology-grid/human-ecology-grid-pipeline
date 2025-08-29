@@ -1,0 +1,17 @@
+name = "ETOPO 2022"
+
+description = '''
+The ETOPO 2022 30 Arc-Second Resolution Global Relief Model provides a high-quality
+gridded representation of the Earth's surface, combining topography and bathymetry
+into a seamless global dataset. This dataset integrates multiple sources, including
+satellite altimetry, shipboard echo-sounding, and global elevation models, to produce
+a consistent and accurate digital elevation model (DEM).
+
+The dataset is provided at 60 arc-second (~2 km) resolution, covering both land and
+seafloor topography. Elevation values are given in meters relative to mean sea level
+for land and the WGS84 ellipsoid for the seafloor.
+'''
+
+cite = ["ETOPO2022"]
+
+license = "CC BY 4.0"

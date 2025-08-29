@@ -1,0 +1,6 @@
+be4c9a605dcc8e69a670e4e740b28e7c  population.nc       https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/population.nc
+57e1d160e55b6a145bfd39157eb98ccf  grazing_land.nc     https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/grazing_land.nc
+a3a6ac9a865a046607cce6bae0cc0060  cropland.nc         https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/cropland.nc
+da4065e5ee0c9942177f3e97b981785a  rural_population.nc https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/rural_population.nc
+7755d8ab67e1428046d7491f992abbfc  urban_area.nc       https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/urban_area.nc
+5db65b6a89b7736fcf58a149d157a659  urban_population.nc https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/urban_population.nc

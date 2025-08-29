@@ -1,0 +1,102 @@
+name = "Population"
+longitudinal = [
+  1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+  2020, 2021, 2022, 2023
+]
+
+description = '''
+The Population module provides annual estimates of total, urban, and rural population per grid cell,
+derived from the HYDE 3.3 dataset. These estimates span the period from 1990 to 2023 and include metrics
+such as population counts, density, and the distribution of population across each cell's subregions.
+
+For each population type (total, urban, and rural), the following metrics are provided:
+- **Population:** Total number of people within each grid cell.
+- **Population Density:** Number of people per square kilometer of land area within the cell.
+- **Population Distribution Index:** Gini coefficient reflecting the evenness of population distribution
+  across subcells within each grid cell. Values range from 0 (even distribution) to 1 (highly concentrated).
+
+These metrics enable detailed spatial analysis of human settlement patterns, urbanization, and demographic
+changes over time.
+'''
+
+# Population Variables
+
+[[variable]]
+name = "population_total_num"
+description.short = "Total population"
+description.temporal = "Annual (1990–2023)"
+aggregation = "sum"
+type = "quantity"
+units = "1"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_total_density"
+description.short = "Population density as population divided by cell land area"
+description.temporal = "Annual (1990–2023)"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "1/km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_total_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of population density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990–2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_urban_num"
+description.short = "Urban population"
+description.temporal = "Annual (1990–2023)"
+aggregation = "sum"
+type = "quantity"
+units = "1"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_urban_density"
+description.short = "Urban population density as population divided by cell land area"
+description.temporal = "Annual (1990–2023)"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "1/km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_urban_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of urban population density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990–2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_rural_num"
+description.short = "Rural population"
+description.temporal = "Annual (1990–2023)"
+aggregation = "sum"
+type = "quantity"
+units = "1"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_rural_density"
+description.short = "Rural population density as population divided by cell land area"
+description.temporal = "Annual (1990–2023)"
+aggregation = "normalize_by_area"
+type = "quantity"
+units = "1/km²"
+data_source = "HYDE"
+
+[[variable]]
+name = "population_rural_dispersion"
+description.short = "Within-cell spatial dispersion (Gini) of rural population density across 24 equal-area sub-zones (0=uniform, 1=concentrated)"
+description.temporal = "Annual (1990–2023)"
+aggregation = "gini"
+type = "numeric"
+data_source = "HYDE"

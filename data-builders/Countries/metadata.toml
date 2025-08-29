@@ -1,0 +1,135 @@
+name = "Countries"
+longitudinal = [
+  1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989,
+  1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+  2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
+]
+
+description = '''
+Aggregated country-level data from the CShapes version 2.0 dataset. This module provides country
+information mapped to geographic grid cells and years, including country identifiers, area coverage,
+and population estimates. It includes detailed statistics for all countries intersecting each cell,
+as well as the largest country per cell by area.
+'''
+
+# CShapes Variables
+[[variable]]
+name = "countries_num"
+description.short = "Number of countries"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "count"
+type = "quantity"
+units = "1"
+data_source = "CShapes"
+
+[[variable]]
+name = "country_largest_name"
+description.short = "Name of the country covering ≥50% of the cell’s land area (NA if no such country)"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "max"
+type = "label"
+data_source = "CShapes"
+
+[[variable]]
+name = "country_largest_isocode"
+description.short = "ISO 3166-1 alpha-3 code of the country covering ≥50% of the cell’s land area (NA if no such country)"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "max"
+type = "id"
+reference_schema = "ISO 3166-1 alpha-3"
+reference_uri = "https://www.iso.org/iso-3166-country-codes.html"
+reference_type = "string"
+data_source = "CShapes"
+
+[[variable]]
+name = "country_largest_gwcode"
+description.short = "Gleditsch–Ward (GW) state code of the country covering ≥50% of the cell’s land area (NA if no such country)"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "max"
+type = "id"
+reference_schema = "Gleditsch and Ward"
+reference_uri = "http://ksgleditsch.com/data-4.html"
+reference_type = "integer"
+data_source = "CShapes"
+
+[[variable]]
+name = "country_largest_area_km2"
+description.short = "Within-cell land area (km²) of the country covering ≥50% of the cell’s land area (NA if no such country)"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "max"
+type = "quantity"
+units = "km2"
+data_source = "CShapes"
+
+[[variable]]
+name = "country_largest_capital_dist_km"
+description.short = "Minimum great-circle distance (km) from the cell's interior to the capital of the country covering ≥50% of the cell’s land area (NA if no such country)"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "max"
+type = "quantity"
+units = "km"
+data_source = "CShapes"
+
+# Nested table for cshapes_countries
+[[variable]]
+name = "countries"
+description.short = "List of countries"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "none"
+type = "list"
+data_source = "CShapes"
+
+# cshapes_countries.variable
+[[variable.variable]]
+name = "country_name"
+description.short = "Country name"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "none"
+type = "label"
+data_source = "CShapes"
+
+# cshapes_countries.variable
+[[variable.variable]]
+name = "country_isocode"
+description.short = "ISO 3166-1 alpha-3 country code"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "none"
+type = "id"
+reference_schema = "ISO 3166-1 alpha-3"
+reference_uri = "https://www.iso.org/iso-3166-country-codes.html"
+reference_type = "string"
+data_source = "CShapes"
+
+
+# cshapes_countries.variable
+[[variable.variable]]
+name = "country_gwcode"
+description.short = "Gleditsch and Ward (GW) country code"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "none"
+type = "id"
+reference_schema = "Gleditsch and Ward"
+reference_uri = "http://ksgleditsch.com/data-4.html"
+reference_type = "integer"
+data_source = "CShapes"
+
+# countries.variable
+[[variable.variable]]
+name = "country_area_km2"
+description.short = "Country land area (km²) within the cell"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "none"
+type = "quantity"
+units = "km2"
+data_source = "CShapes"
+
+# countries.variable
+[[variable.variable]]
+name = "country_capital_dist_km"
+description.short = "Minimum great-circle distance (km) from the cell's interior to the country’s capital"
+description.temporal = "Annual country boundaries (1981-2019)"
+aggregation = "min"
+type = "quantity"
+units = "km"
+data_source = "CShapes"
